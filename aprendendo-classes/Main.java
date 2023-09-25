@@ -3,7 +3,13 @@
 /* To Do:
  * - Adicionar os comandos listados em help.
  * - Criar o submenu "sobre".
+ * - Criar uma forma do programa funcionar como um terminal e um comando de quit (FEITO)
+ * - Criar a opçâo que permite o usuario consultar a data e hora (FEITO)
  */
+import java.awt.*; //importando AWT para usar seus comandos, abrindo uma url no browser padrao
+import java.io.IOException;
+import java.net.URI;
+
 public class Main {
     public static void main(String args[]) {
         System.out.println("***************************************************************************************\n" +
@@ -16,17 +22,31 @@ public class Main {
         opsMenu menu = new opsMenu();
 
         // Input para o usuário digitar:
-        String opHelp = new String("help"); // String da opção help precisa ser um OBJETO STRING, já que o input do
-                                            // usuário é um objeto
-        System.out.print("-$> ");
+        String opHelp = new String("help"); //OBJETOS string das opções para comparar com o input
+        String opRepo = new String("repo");
+        String opBreak = new String("break");
+        String opHora = new String("hora");
+        String opSobre = new String("sobre");
+
+        while(true){ //LOOP INFINITO para fazer com que o usuario sempre consiga digitar prompts
+        System.out.print("-$> "); 
         String input = System.console().readLine();
 
-        // menu help:
+        // menu help: (nao usarei switch pois não funciona com objetos no java)
         if (input.equals(opHelp)) { // método .equals() compara 2 objetos
             menu.cmdHelp();
-        } else {
-            System.out.println("ERRO");
+        } if(input.equals(opRepo)) {
+            menu.cmdRepo("https://github.com/Matheus-Assis05/Java-primeiro-projeto-terminal");
+        } if(input.equals(opBreak)){
+            break; //break para o loop.
+        } if(input.equals(opHora)){
+            menu.cmdHora();
+        } if(input.equals(opSobre)){
+            menu.cmdSobre();
+        } else{
+            System.out.println("ERRO: COMANDO INVALIDO");
         }
-
+        
+        }
     }
 }
