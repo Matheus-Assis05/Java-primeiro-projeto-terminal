@@ -53,12 +53,12 @@ public class opsMenu {
 
             if(inputSobre.equals(opNome)){
                 System.out.println("Desenvovido por: github.com/Matheus-assis05");
-            } if(inputSobre.equals(opLang)){
+            } else if(inputSobre.equals(opLang)){
                 System.out.println("Java(TM) version 21");
-            } if(inputSobre.equals(opDesc)){
+            } else if(inputSobre.equals(opDesc)){
                 System.out.println("Terminal simples com alguns comandos. A finalidade \n"+
                 "do projeto é revisar e fixar a sintaxe java e aprender sobre classes e importações");
-            } if(inputSobre.equals(opVoltar)){
+            } else if(inputSobre.equals(opVoltar)){
                 break; // como o break deste while esta tecnincamente dentro de outro while (o principal)
                        //entao ele volta para o menu incial, habilitando o usuario de dar prompts fora de sobre.
             } else{
